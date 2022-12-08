@@ -1,15 +1,17 @@
 package com.nbstech.spring.basic.movierecommendersystem.Lesson3;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MovieRecommender {
+    @Qualifier("TU")
     @Autowired
-    MovieFilter movieFilter;
+    MovieFilter contentBasedFilter;
 
     public MovieRecommender(MovieFilter movieFilter) {
-        this.movieFilter = movieFilter;
+        this.contentBasedFilter = movieFilter;
     }
 
     public String [] recommendMovies (String movie) {
